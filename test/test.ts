@@ -53,8 +53,7 @@ async function main(sources: string[]) {
       console.error(`* Running ${tests.length} tests between ${fixtures.length} fixtures`);
 
       for (const fixture of fixtures) {
-        await execAsync(`rm -rf test/runs`);
-        await execAsync(`mkdir -p test/runs`);
+        await execAsync(`ts-node script/cleantests.ts`);
 
         await fixture.setup();
       }
